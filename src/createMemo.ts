@@ -5,7 +5,6 @@ export const createMemo = (fn: Function) => {
   const [s, set] = createSignal();
   createEffect(() => {
     set(fn());
-    console.log("set(fn())");
   });
   return s;
 };
