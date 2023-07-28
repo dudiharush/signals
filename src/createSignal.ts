@@ -1,4 +1,4 @@
-import { Observer, Observers, getCurrentObserver } from "./context";
+import { Observer, Observers, getCurrentObserver } from "./observerStack";
 
 function subscribe(runningEffect: Observer, signalObservers: Observers) {
     signalObservers.add(runningEffect);
@@ -6,7 +6,7 @@ function subscribe(runningEffect: Observer, signalObservers: Observers) {
     runningEffect.dependencies.add(signalObservers);
 }
 
-export const createSingle = <V>(value: V) => {
+export const createSignal = <V>(value?: V) => {
   const subscribers = new Set<Observer>();
 
   const read = () => {

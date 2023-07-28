@@ -1,9 +1,9 @@
 import { it, expect, vi } from "vitest";
-import { createSingle } from "./createSignal";
+import { createSignal } from "./createSignal";
 import { createEffect } from "./createEffect";
 
 it("check createEffect is being called ones on creation", () => {
-  const [count] = createSingle(0);
+  const [count] = createSignal(0);
 
   const mockCb = vi.fn();
 
@@ -16,7 +16,7 @@ it("check createEffect is being called ones on creation", () => {
 });
 
 it("check createEffect is being called twice: on creation, and one update", () => {
-  const [count, setCount] = createSingle(0);
+  const [count, setCount] = createSignal(0);
 
   const mockCb = vi.fn();
   createEffect(() => {
