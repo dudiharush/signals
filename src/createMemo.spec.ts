@@ -3,7 +3,7 @@ import { createSignal } from "./createSignal";
 import { createEffect } from "./createEffect";
 import { createMemo } from "./createMemo";
 
-it("check createEffect is being called ones on creation", () => {
+it("check createMemo is memoizing calculateDisplayName calls", () => {
   console.log("1. Create");
   const firstNameSignal = createSignal("John");
   const lastNameNameSignal = createSignal("Smith");
